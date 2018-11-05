@@ -31,6 +31,14 @@ class App extends Component {
     });
   }
 
+  handleSubmit = task => {
+    this.setState({
+      tasks: [
+        ...this.state.tasks, task
+      ]
+    });
+  }
+
   render() {
     return (
       <div className="container">
@@ -39,7 +47,7 @@ class App extends Component {
           tasks={this.state.tasks}
           removeTask={this.removeTask}
         />
-        {/* <Form /> */}
+        <Form handleSubmit={this.handleSubmit} />
       </div>
     );
   }
